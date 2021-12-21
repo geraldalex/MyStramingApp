@@ -172,6 +172,58 @@ style={{
     )
 }
 
+function renderMovieDateils() {
+    return(
+        <View style={{
+            flex:1,
+            paddingHorizontal:SIZES.padding,
+            marginTop:SIZES.padding,
+            justifyContent:'space-around'
+        }}>
+{/* Title and Progress Bar */}
+<View style={{}}>
+    {/* Title and running time */}
+<View style={{
+    flexDirection:'row'
+}}>
+<Text style={{flex:1, color:COLORS.white, ...FONTS.h4}}>{selectedMovie?.details?.currentEpisode}</Text>
+<Text style={{ color:COLORS.lightGray, ...FONTS.body4}}>{selectedMovie?.details?.runningTime}</Text>
+</View>
+<ProgressBar
+containerStyle={{
+    marginTop:SIZES.radius
+}}
+barStyle={{
+    height:5,
+    borderRadius:3
+}}
+
+barPercentage={selectedMovie?.details?.progress}
+/>
+</View>
+
+{/* Watch */}
+<TouchableOpacity 
+
+style={{
+    height:60,
+    alignItems:'center',
+    justifyContent:'center',
+    marginBottom:Platform.os === 'ios' ? SIZES.padding * 2 : 0,
+    borderRadius:15,
+    backgroundColor:COLORS.primary
+}}
+>
+<Text style={{
+    color:COLORS.white,
+    ...FONTS.h2
+}}>{selectedMovie?.details?.progress === "0%" ? "WATCH NOW" : "CONTINUE WATCH"}</Text>
+</TouchableOpacity>
+
+        </View>
+    )
+}
+
     return (
         <ScrollView 
         contentContainerStyle={{
@@ -188,6 +240,7 @@ style={{
 {renderCategoryAndRatings()}
 
 {/* Movie Details */}
+{renderMovieDateils()}
         </ScrollView>
     )
 }
