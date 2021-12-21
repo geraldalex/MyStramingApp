@@ -209,7 +209,7 @@ style={{
     height:60,
     alignItems:'center',
     justifyContent:'center',
-    marginBottom:Platform.os === 'ios' ? SIZES.padding * 2 : 0,
+    marginBottom:Platform.OS === 'ios' ? SIZES.padding * 2 : 0,
     borderRadius:15,
     backgroundColor:COLORS.primary
 }}
